@@ -108,10 +108,10 @@
 										<!--begin::Breadcrumb-->
 										<ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
 											<li class="breadcrumb-item">
-												<a href="#" class="text-muted">Dashboard</a>
+												<a href="dashboard.php" class="text-muted">Dashboard</a>
 											</li>
 											<li class="breadcrumb-item">
-												<a href="#" class="text-muted">All Complain List</a>
+												<a href="Complaint.php" class="text-muted">All Complain List</a>
 											</li>
 											
 										</ul>
@@ -186,9 +186,9 @@
 													<td><?php echo $row["Com_datetime"] ?></td>
 
 													<td>
-														<a href="#" class="btn btn-primary">Edit</a>
+														<!-- <a href="#" class="btn btn-primary">Edit</a> -->
 														<a href="#" data-toggle="modal" data-target="#exampleModal" data-id="<?php echo $row["user_id"]; ?>" class="btn btn-danger btn-delete">Delete</a>
-														<a href="#" class="btn btn-info">View More</a>
+														<!-- <a href="#" class="btn btn-info">View More</a> -->
 													</td>
 												</tr>
 											<?php } ?>

@@ -73,10 +73,10 @@
 										<!--begin::Breadcrumb-->
 										<ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
 											<li class="breadcrumb-item">
-												<a href="#" class="text-muted">Dashboard</a>
+												<a href="dashboard.php" class="text-muted">Dashboard</a>
 											</li>
 											<li class="breadcrumb-item">
-												<a href="#" class="text-muted">FAQ Category</a>
+												<a href="FAQ_category.php" class="text-muted">FAQ Category</a>
 											</li>
 											
 										</ul>
@@ -142,7 +142,7 @@
 													<td><?php echo $row["Faq_cat_name"]; ?></td>
 													
 													<td>
-														<a href="#" class="btn btn-primary">Edit</a>
+													<a href="update_faq_category.php?FaqcatId=<?php echo $row['Faq_cat_id']; ?> "class="btn btn-primary">Edit</a>
 														<a href="#" data-toggle="modal" data-target="#exampleModal" data-id="<?php echo $row["Faq_cat_id"]; ?>" class="btn btn-danger btn-delete">Delete</a>
 														<a href="#" class="btn btn-info">View More</a>
 													</td>

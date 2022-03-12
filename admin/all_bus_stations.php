@@ -72,12 +72,11 @@
 										<!--begin::Breadcrumb-->
 										<ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
 											<li class="breadcrumb-item">
-												<a href="#" class="text-muted">Dashboard</a>
+												<a href="dashboard.php" class="text-muted">Dashboard</a>
 											</li>
 											<li class="breadcrumb-item">
-												<a href="#" class="text-muted">All Bus Stations</a>
+												<a href="all_bus_stations.php" class="text-muted">All Bus Stations</a>
 											</li>
-											
 										</ul>
 										<!--end::Breadcrumb-->
 									</div>
@@ -145,7 +144,7 @@
 													<td>
 												 <a href="update_busstation.php?busstationId=<?php echo $row['Bus_station_id']; ?> "class="btn btn-primary">Edit</a>
 														<a href="#" class="btn btn-danger btn-delete" data-toggle="modal" data-target="#exampleModal" data-id="<?php echo $row["Bus_station_id"];?>">Delete</a>
-														<a href="#" class="btn btn-info">View More</a>
+														<a href="viewmore_bus_stations.php?busstationId=<?php echo $row['Bus_station_id']; ?>" class="btn btn-info">View More</a>
 													</td>
 												</tr>
 											<?php } ?>

@@ -109,11 +109,11 @@ $id = $_GET["NewsId"];
 										<!--begin::Breadcrumb-->
 										<ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
 											<li class="breadcrumb-item">
-												<a href="#" class="text-muted">Dashboard</a>
+												<a href="dashboard.php" class="text-muted">Dashboard</a>
 											</li>
-											<li class="breadcrumb-item">
+											<!-- <li class="breadcrumb-item">
 												<a href="#" class="text-muted">Update News</a>
-											</li>
+											</li> -->
 											<li class="breadcrumb-item">
 												<a href="#" class="text-muted">Update News</a>
 											</li>
@@ -143,8 +143,7 @@ $id = $_GET["NewsId"];
 										<!--begin::Card-->
 										<div class="card card-custom example example-compact">
 											<div class="card-header">
-												<h3 class="card-title">Add News</h3>
-											
+												<h3 class="card-title">Update News</h3>
 											</div>
 
 											<?php
@@ -192,7 +191,7 @@ $id = $_GET["NewsId"];
 												<div class="card-body">
 													<div class="form-group">
 														<label>Title:</label>
-														<input type="text" name="txttitle" class="form-control" value="<?php echo $row["Title"]; ?> "placeholder="title" />
+														<input type="text" name="txttitle" class="form-control" value="<?php echo $row["Title"]; ?> " placeholder="title" />
 													</div>
 													<div class="form-group">
 														<label>Description:</label>
@@ -203,13 +202,8 @@ $id = $_GET["NewsId"];
 														<label>News Img:</label>
 														<input type="file" class="form-control" placeholder="news img" name="newsimg" />
 														<img src="uploads/news/<?php echo $row["News_img"]?>" height="100px" width="150px" />
-													<input type="hidden" name="newsoldimg" value="<?php echo $row["News_img"]?>"/>
+													    <input type="hidden" name="newsoldimg" value="<?php echo $row["News_img"]?>"/>
 													</div>
-														
-													
-												
-										
-													<!--end: Code-->
 												</div>
 												<div class="card-footer">
 													<button type="submit" name="btnsubmit" class="btn btn-primary mr-2">Submit</button>

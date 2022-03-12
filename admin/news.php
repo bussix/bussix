@@ -108,10 +108,10 @@
 										<!--begin::Breadcrumb-->
 										<ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
 											<li class="breadcrumb-item">
-												<a href="#" class="text-muted">Dashboard</a>
+												<a href="dashboard.php" class="text-muted">Dashboard</a>
 											</li>
 											<li class="breadcrumb-item">
-												<a href="#" class="text-muted">News</a>
+												<a href="news.php" class="text-muted">News</a>
 											</li>
 											
 										</ul>
@@ -162,7 +162,7 @@
 													<th>title</th>
 													<th>description</th>
 													<th>news image</th>
-													<!-- <th>news_datetime</th> -->
+													<th>news_datetime</th>
 													<th>Actions</th>
 												</tr>
 											</thead>
@@ -180,10 +180,10 @@
 													<td><?php echo $row["Title"] ?></td>
 													<td><?php echo $row["Description"] ?></td>
 													<td><img height="100px" width="150px" src="uploads/news/<?php echo $row["News_img"] ?>"></td>
-													<!-- <td><?php echo $row["News_datetime"] ?></td> -->
+													<td><?php echo $row["News_datetime"] ?></td>
 
 
-													<td>
+													<td style="width:30%;">
 														<a href="update_news.php?NewsId=<?php echo $row['News_id']; ?>" class="btn btn-sm btn-primary">Edit</a>
 														<a href="#" data-toggle="modal" data-target="#exampleModal" data-id="<?php echo $row["News_id"]; ?>"class="btn btn-sm btn-danger btn-delete">Delete</a>
 														<a href="#" class="btn btn-sm btn-info">View More</a>

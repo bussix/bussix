@@ -31,6 +31,12 @@
 		<link rel="shortcut icon" href="https://preview.keenthemes.com/metronic/theme/html/demo1/dist/assets/media/logos/favicon.ico" />
 		<!-- Hotjar Tracking Code for keenthemes.com -->
 		<script>(function(h,o,t,j,a,r){ h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)}; h._hjSettings={hjid:1070954,hjsv:6}; a=o.getElementsByTagName('head')[0]; r=o.createElement('script');r.async=1; r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv; a.appendChild(r); })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');</script>
+		<style>
+			.error
+			{
+				color: red !important;
+			}
+		</style>
 	</head>
 	<!--end::Head-->
 	<!--begin::Body-->
@@ -100,18 +106,18 @@
 									<!--begin::Page Heading-->
 									<div class="d-flex align-items-baseline flex-wrap mr-5">
 										<!--begin::Page Title-->
-										<h5 class="text-dark font-weight-bold my-1 mr-5">Manage Bus</h5>
+										<h5 class="text-dark font-weight-bold my-1 mr-5">Add Bus</h5>
 										<!--end::Page Title-->
 										<!--begin::Breadcrumb-->
 										<ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
 											<li class="breadcrumb-item">
-												<a href="#" class="text-muted">Dashboard</a>
+												<a href="dashboard.php" class="text-muted">Dashboard</a>
 											</li>
+											<!-- <li class="breadcrumb-item">
+												<a href="" class="text-muted">Manage Bus</a>
+											</li> -->
 											<li class="breadcrumb-item">
-												<a href="#" class="text-muted">Manage Bus</a>
-											</li>
-											<li class="breadcrumb-item">
-												<a href="#" class="text-muted">Add Bus</a>
+												<a href="add_bus.php" class="text-muted">Add Bus</a>
 											</li>
 											
 										</ul>
@@ -175,10 +181,10 @@
 											?>
 
 											<!--begin::Form-->
-											<form class="form" method="post" enctype="multipart/form-data">
+											<form id="form1" class="form" method="post" enctype="multipart/form-data">
 												<div class="card-body">
 													<div class="form-group">
-														<label>Bus Number:</label>
+														<label for="txtbusnumber">Bus Number:</label>
 														<input type="text" name="txtbusnumber" class="form-control" placeholder="Bus Number" />
 
 													</div>
@@ -249,6 +255,27 @@
 		<script src="theme/html/demo1/dist/assets/plugins/global/plugins.bundle9cd7.js?v=7.1.5"></script>
 		<script src="theme/html/demo1/dist/assets/plugins/custom/prismjs/prismjs.bundle9cd7.js?v=7.1.5"></script>
 		<script src="theme/html/demo1/dist/assets/js/scripts.bundle9cd7.js?v=7.1.5"></script>
+	    <script src="theme/html/demo1/dist/assets/js/jquery.min.js"></script>
+		<script src="theme/html/demo1/dist/assets/js/jquery.validate.min.js"></script>
+		<script src="theme/html/demo1/dist/assets/js/additional-methods.min.js"></script>
+		<script>
+    $("#form1").validate({
+        rules:
+        {
+            txtbusnumber:
+            {
+                required:true,
+            },
+        },
+        messages:
+        {
+            txtbusnumber:
+            {
+                required:"Please Enter Username",
+            },
+        }
+    });
+</script>
 		<!--end::Global Theme Bundle-->
 	</body>
 	<!--end::Body-->

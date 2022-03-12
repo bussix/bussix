@@ -109,11 +109,11 @@
 										<!--begin::Breadcrumb-->
 										<ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
 											<li class="breadcrumb-item">
-												<a href="#" class="text-muted">Dashboard</a>
+												<a href="dashboard.php" class="text-muted">Dashboard</a>
 											</li>
-											<li class="breadcrumb-item">
+											<!-- <li class="breadcrumb-item">
 												<a href="#" class="text-muted">Manage Bus</a>
-											</li>
+											</li> -->
 											<li class="breadcrumb-item">
 												<a href="#" class="text-muted">Update Bus</a>
 											</li>

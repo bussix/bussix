@@ -1,4 +1,7 @@
-<?php include 'connection.php'; ?>
+<?php 
+	session_start();
+	$conn = mysqli_connect("localhost","root","","db_brts") or die("Database Error");
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<!--begin::Head-->
@@ -81,21 +84,27 @@
 								$username=$_POST["username"];
 								$password=$_POST["password"];
 
+								echo $username . $password;
+
 								//query
-								$result = mysqli_query($conn,"select * from tbl_admin where User_name='$username' and password='$password'");
+								$result = mysqli_query($conn,"select * from tbl_admin where User_name='".$username."' and password='".$password."'") or die(mysqli_error($conn));
 								if(mysqli_num_rows($result)<=0)
 								{
-									echo "Username and password not found";
+										echo "
+										<div class='alert alert-danger' role='alert'>
+										  Username and password not found
+										</div>";
 								}
 								else
 								{
-									echo "<script>window.location='dashboard.php';</script>";
+										$_SESSION["name"]=$username;
+										echo "<script>window.location='/brts/admin/dashboard.php';</script>";
 								}
 							}
 							?>
 
 							<!--begin::Form-->
-							<form class="form" method="post">
+							<form class="form" method="post" id="form1">
 								<!--begin::Title-->
 								<div class="pb-13 pt-lg-0 pt-5">
 									<h3 class="font-weight-bolder text-dark font-size-h4 font-size-h1-lg">Welcome to bussix</h3>
@@ -104,17 +113,17 @@
 								<!--begin::Title-->
 								<!--begin::Form group-->
 								<div class="form-group">
-									<label class="font-size-h6 font-weight-bolder text-dark">Username</label>
-									<input class="form-control form-control-solid h-auto py-6 px-6 rounded-lg" type="text" name="username" autocomplete="off" />
+									<label class="font-size-h6 font-weight-bolder text-dark" for="username">Username</label>
+									<input class="form-control form-control-solid h-auto py-6 px-6 rounded-lg" type="text" name="username" autocomplete="off" id="username" placeholder="Username" />
 								</div>
 								<!--end::Form group-->
 								<!--begin::Form group-->
 								<div class="form-group">
 									<div class="d-flex justify-content-between mt-n5">
-										<label class="font-size-h6 font-weight-bolder text-dark pt-5">Password</label>
-										<a href="javascript:;" class="text-primary font-size-h6 font-weight-bolder text-hover-primary pt-5" id="kt_login_forgot">Forgot Password ?</a>
+										<label class="font-size-h6 font-weight-bolder text-dark pt-5" for="password">Password</label>
+										<!-- <a href="javascript:;" class="text-primary font-size-h6 font-weight-bolder text-hover-primary pt-5" id="kt_login_forgot">Forgot Password ?</a> -->
 									</div>
-									<input class="form-control form-control-solid h-auto py-6 px-6 rounded-lg" type="password" name="password" autocomplete="off" />
+									<input class="form-control form-control-solid h-auto py-6 px-6 rounded-lg" type="password" name="password" autocomplete="off" id="password" placeholder="Password" />
 								</div>
 								<!--end::Form group-->
 								<!--begin::Action-->
@@ -126,81 +135,6 @@
 							<!--end::Form-->
 						</div>
 						<!--end::Signin-->
-						<!--begin::Signup-->
-						<div class="login-form login-signup">
-							<!--begin::Form-->
-							<form class="form" novalidate="novalidate" id="kt_login_signup_form">
-								<!--begin::Title-->
-								<div class="pb-13 pt-lg-0 pt-5">
-									<h3 class="font-weight-bolder text-dark font-size-h4 font-size-h1-lg">Sign Up</h3>
-									<p class="text-muted font-weight-bold font-size-h4">Enter your details to create your account</p>
-								</div>
-								<!--end::Title-->
-								<!--begin::Form group-->
-								<div class="form-group">
-									<input class="form-control form-control-solid h-auto py-6 px-6 rounded-lg font-size-h6" type="text" placeholder="Fullname" name="fullname" autocomplete="off" />
-								</div>
-								<!--end::Form group-->
-								<!--begin::Form group-->
-								<div class="form-group">
-									<input class="form-control form-control-solid h-auto py-6 px-6 rounded-lg font-size-h6" type="email" placeholder="Email" name="email" autocomplete="off" />
-								</div>
-								<!--end::Form group-->
-								<!--begin::Form group-->
-								<div class="form-group">
-									<input class="form-control form-control-solid h-auto py-6 px-6 rounded-lg font-size-h6" type="password" placeholder="Password" name="password" autocomplete="off" />
-								</div>
-								<!--end::Form group-->
-								<!--begin::Form group-->
-								<div class="form-group">
-									<input class="form-control form-control-solid h-auto py-6 px-6 rounded-lg font-size-h6" type="password" placeholder="Confirm password" name="cpassword" autocomplete="off" />
-								</div>
-								<!--end::Form group-->
-								<!--begin::Form group-->
-								<div class="form-group">
-									<label class="checkbox mb-0">
-										<input type="checkbox" name="agree" />
-										<span></span>
-										<div class="ml-2">I Agree the 
-										<a href="#">terms and conditions</a>.</div>
-									</label>
-								</div>
-								<!--end::Form group-->
-								<!--begin::Form group-->
-								<div class="form-group d-flex flex-wrap pb-lg-0 pb-3">
-									<button type="button" id="kt_login_signup_submit" class="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mr-4">Submit</button>
-									<button type="button" id="kt_login_signup_cancel" class="btn btn-light-primary font-weight-bolder font-size-h6 px-8 py-4 my-3">Cancel</button>
-								</div>
-								<!--end::Form group-->
-							</form>
-							<!--end::Form-->
-						</div>
-						<!--end::Signup-->
-						<!--begin::Forgot-->
-						<div class="login-form login-forgot">
-							<!--begin::Form-->
-							<form class="form" novalidate="novalidate" id="kt_login_forgot_form">
-								<!--begin::Title-->
-								<div class="pb-13 pt-lg-0 pt-5">
-									<h3 class="font-weight-bolder text-dark font-size-h4 font-size-h1-lg">Forgotten Password ?</h3>
-									<p class="text-muted font-weight-bold font-size-h4">Enter your email to reset your password</p>
-								</div>
-								<!--end::Title-->
-								<!--begin::Form group-->
-								<div class="form-group">
-									<input class="form-control form-control-solid h-auto py-6 px-6 rounded-lg font-size-h6" type="email" placeholder="Email" name="email" autocomplete="off" />
-								</div>
-								<!--end::Form group-->
-								<!--begin::Form group-->
-								<div class="form-group d-flex flex-wrap pb-lg-0">
-									<button type="button" id="kt_login_forgot_submit" class="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mr-4">Submit</button>
-									<button type="button" id="kt_login_forgot_cancel" class="btn btn-light-primary font-weight-bolder font-size-h6 px-8 py-4 my-3">Cancel</button>
-								</div>
-								<!--end::Form group-->
-							</form>
-							<!--end::Form-->
-						</div>
-						<!--end::Forgot-->
 					</div>
 					<!--end::Content body-->
 					<!--begin::Content footer-->
@@ -220,6 +154,35 @@
 		<script src="theme/html/demo1/dist/assets/plugins/global/plugins.bundle9cd7.js?v=7.1.5"></script>
 		<script src="theme/html/demo1/dist/assets/plugins/custom/prismjs/prismjs.bundle9cd7.js?v=7.1.5"></script>
 		<script src="theme/html/demo1/dist/assets/js/scripts.bundle9cd7.js?v=7.1.5"></script>
+		<script src="theme/html/demo1/dist/assets/js/jquery.min.js"></script>
+		<script src="theme/html/demo1/dist/assets/js/jquery.validate.min.js"></script>
+		<script src="theme/html/demo1/dist/assets/js/additional-methods.min.js"></script>
+		<script>
+    $("#form1").validate({
+        rules:
+        {
+            username:
+            {
+                required:true,
+            },
+            password:
+            {
+                required:true
+            }
+        },
+        messages:
+        {
+            username:
+            {
+                required:"Please Enter Username"
+            },
+            password:
+            {
+                required:"Please Enter Password"
+            }
+        }
+    });
+</script>
 		<!--end::Global Theme Bundle-->
 		<!--begin::Page Scripts(used by this page)-->
 		<script src="theme/html/demo1/dist/assets/js/pages/custom/login/login-general9cd7.js?v=7.1.5"></script>

@@ -108,10 +108,10 @@
 										<!--begin::Breadcrumb-->
 										<ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
 											<li class="breadcrumb-item">
-												<a href="#" class="text-muted">Dashboard</a>
+												<a href="dashboard.php" class="text-muted">Dashboard</a>
 											</li>
 											<li class="breadcrumb-item">
-												<a href="#" class="text-muted">Users</a>
+												<a href="all_users.php" class="text-muted">Users</a>
 											</li>
 											
 										</ul>
@@ -183,8 +183,8 @@
 													<td><?php echo $row["Register_datetime"]; ?></td>
 													<td><?php echo $row["Is_verify"]; ?></td>	
 													<td>
-														<!-- <a href="#" class="btn btn-primary">Edit</a>
- -->
+														<a href="update_user.php?userId=<?php echo $row['user_id']; ?>" class="btn btn-primary">Edit</a>
+
 														<a href="#" data-toggle="modal" data-target="#exampleModal" data-id="<?php echo $row["user_id"]; ?>" class="btn btn-danger btn-delete">Delete</a>
 														
 														<a href="#" class="btn btn-info">View More</a>

@@ -108,11 +108,11 @@ $id = $_GET["busstationId"];
 									<!--begin::Breadcrumb-->
 									<ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
 										<li class="breadcrumb-item">
-											<a href="#" class="text-muted">Dashboard</a>
+											<a href="dashboard.php" class="text-muted">Dashboard</a>
 										</li>
-										<li class="breadcrumb-item">
+										<!-- <li class="breadcrumb-item">
 											<a href="#" class="text-muted">Manage Bus Stations</a>
-										</li>
+										</li> -->
 										<li class="breadcrumb-item">
 											<a href="#" class="text-muted">Update Bus stations</a>
 										</li>
@@ -134,17 +134,14 @@ $id = $_GET["busstationId"];
 						<!--begin::Container-->
 						<div class="container">
 							<div class="row">
-								<div class="col-3"></div>
-								<div class="col-6">
-									<!--begin::Card-->
-									
-									<!--end::Card-->
-									<!--begin::Card-->
+								<div class="col-2"></div>
+								<div class="col-8">
 									<div class="card card-custom example example-compact">
 										<div class="card-header">
 											<h3 class="card-title">update Bus Station</h3>
 											
 										</div>
+										<div class="card-body">
 										<?php
 
 										if(isset($_POST["btnsubmit"]))
@@ -239,14 +236,6 @@ $id = $_GET["busstationId"];
 														<option <?php if($row["bus_station_isactive"]=="No"){?>selected="true" <?php } ?>>No</option>
 													</select>
 												</div>
-
-
-												<div class="form-group">
-													<label>Video:</label>
-
-													<input type="file" class="form-controlplaceholder"=video />
-												</div>	
-												<!--end: Code-->
 											</div>
 											<div class="card-footer">
 												<button type="submit" name="btnsubmit" class="btn btn-primary mr-2">Submit</button>
